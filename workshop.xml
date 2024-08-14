@@ -1,0 +1,7 @@
+<Mod
+    name="Nightmare Enemies Drop Perks"
+    description="This mod makes enemies in Nightmare Mode drop their perks upon death. Simple enough!
+
+Make sure this mod goes BELOW Nightmare Mode in the modlist, otherwise it won't work!"
+    tags="gameplay, quality of life, perks"
+></Mod>
