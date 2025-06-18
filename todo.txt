@@ -1,0 +1,3 @@
+[ ] Test this with Nightmare Perks
+[ ] Test this with Glass Artillery
+[ ] Test this with Apotheosis's alchemistdream seed
