@@ -25,18 +25,25 @@ local run_per_frame = 150
 local thisFrame = 0
 -- Sharpy796: Make this compatible with things other than Nightmare Mode?
 function OnWorldPostUpdate() -- This is called every time the game has finished updating the world
-	-- local player_id = EntityGetWithTag("player_unit")[1]
-	-- local x, y = EntityGetTransform(player_id)
-	-- local entity_list = EntityGetWithTag("homing_target")
-    -- local comp_filename = "mods/nightmare_enemies_drop_perks/files/drop_perks_on_death.xml"
-	-- for i=1, #entity_list do
-	-- 	if (EntityGetTags(entity_list[i])["tagged_to_drop_perks"] ~= nil) then
-	-- 		GamePrint("Tagging " .. entity_list[i] .. " to drop perks.")
-	-- 		EntityLoadToEntity( comp_filename, entity_list[i] )
-	-- 		EntityAddTag(entity_list[i], "tagged_to_drop_perks")
-	-- 	end
-	-- end
+	local player_id = EntityGetWithTag("player_unit")[1]
+	local x, y = EntityGetTransform(player_id)
+	local entity_list = EntityGetWithTag("homing_target")
+    local comp_filename = "mods/nightmare_enemies_drop_perks/files/drop_perks_on_death.xml"
+	for i=1, #entity_list do
+		-- if (EntityGetTags(entity_list[i])["tagged_to_drop_perks"] ~= nil) then
+		-- if (EntityGetTags(entity_list[i]) ~= nil) then
+		if (EntityHasTag(entity_list[i], "tagged_to_drop_perks") == false) then
+			-- local tag_list = EntityGetTags(entity_list[i])
+			-- for j=1, #tag_list do
+			-- 	GamePrint("  "..j..". "..tag_list)
+			-- end
+
+			GamePrint("Tagging " .. entity_list[i] .. " to drop perks.")
+			EntityLoadToEntity( comp_filename, entity_list[i] )
+			EntityAddTag(entity_list[i], "tagged_to_drop_perks")
+		end
+	end
 end
 
 -- This code runs when all mods' filesystems are registered
-ModLuaFileAppend( "data/scripts/director_helpers.lua", "mods/nightmare_enemies_drop_perks/files/director_helpers_appends.lua")
+-- ModLuaFileAppend( "data/scripts/director_helpers.lua", "mods/nightmare_enemies_drop_perks/files/director_helpers_appends.lua")
