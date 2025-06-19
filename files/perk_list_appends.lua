@@ -1,12 +1,7 @@
 local function do_perk_tagging_stuff( perk, entity_who_picked )
-    -- print("yo hey this thing got a perk")
-    -- print("perk id: "..perk.id)
-    
-    -- tag_entity(entity_who_picked)
-    
+    -- print("yo this guy got a perk")
     if (not EntityHasTag(entity_who_picked, "TAGGED_TO_DROP_PERKS")) then
         EntityLoadToEntity( "mods/nightmare_enemies_drop_perks/files/drop_perks_on_death.xml", entity_who_picked )
-        -- EntityLoadToEntity( "mods/nightmare_enemies_drop_perks/files/colour_true_rainbow.xml", entity_who_picked ) -- For testing purposes
         -- print("entity loaded")
     end
 	EntityAddTag(entity_who_picked, "TAGGED_TO_DROP_PERKS")
