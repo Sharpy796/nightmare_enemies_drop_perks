@@ -27,9 +27,9 @@ for i,perk in ipairs(perk_list) do
         elseif (perk.func ~= nil) then
             -- print("> perk has func")
             _func = perk.func
-            perk.func = function( entity_perk_item, entity_who_picked )
+            perk.func = function( entity_perk_item, entity_who_picked, item_name, pickup_count )
                 do_perk_tagging_stuff( perk, entity_who_picked )
-                _func( entity_perk_item, entity_who_picked )
+                _func( entity_perk_item, entity_who_picked, item_name, pickup_count ) -- pickup_count isn't in every version, this might break
 		    end
         else
             -- print("> perk has NEITHER")
